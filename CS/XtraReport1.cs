@@ -50,16 +50,17 @@ namespace dxKB17175
         }
         public void InitTables(ArrayList columns) {
 
-            int colCount = columns.Count;
-            int pagewidth = (PageWidth - (Margins.Left + Margins.Right));
+           int colCount = columns.Count;
+            int pagewidth = (int)(PageWidth - (Margins.Left + Margins.Right));
             int colWidth = pagewidth / colCount;
-            
+
             XRTable table = new XRTable();
             XRTableRow row = new XRTableRow();
             XRTable table2 = new XRTable();
             XRTableRow row2 = new XRTableRow();
-            
-            for(int i = 0; i < colCount; i++) {
+
+            for (int i = 0; i < colCount; i++)
+            {
                 XRTableCell cell = new XRTableCell();
                 cell.Width = (int)colWidth;
                 cell.Text = columns[i].ToString();
