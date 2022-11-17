@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to convert an XtraGrid to an XtraReport at runtime
 ' 
 ' This example demonstrates how to dynamically create a report based upon the
@@ -9,9 +9,10 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E108
-
 Namespace dxKB17175
-    Partial Public Class Form1
+
+    Partial Class Form1
+
         ''' <summary>
         ''' Required designer variable.
         ''' </summary>
@@ -22,14 +23,14 @@ Namespace dxKB17175
         ''' </summary>
         ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-            If disposing AndAlso (components IsNot Nothing) Then
-                components.Dispose()
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
             End If
+
             MyBase.Dispose(disposing)
         End Sub
 
-        #Region "Windows Form Designer generated code"
-
+#Region "Windows Form Designer generated code"
         ''' <summary>
         ''' Required method for Designer support - do not modify
         ''' the contents of this method with the code editor.
@@ -55,11 +56,11 @@ Namespace dxKB17175
             Me.customersTableAdapter = New dxKB17175.nwindDataSetTableAdapters.CustomersTableAdapter()
             Me.simpleButton1 = New DevExpress.XtraEditors.SimpleButton()
             Me.checkEdit1 = New DevExpress.XtraEditors.CheckEdit()
-            DirectCast(Me.gridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.customersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.nwindDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.gridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.checkEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.gridControl1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.customersBindingSource), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.nwindDataSet), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.gridView1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.checkEdit1.Properties), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' gridControl1
@@ -71,7 +72,7 @@ Namespace dxKB17175
             Me.gridControl1.Name = "gridControl1"
             Me.gridControl1.Size = New System.Drawing.Size(708, 255)
             Me.gridControl1.TabIndex = 0
-            Me.gridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() { Me.gridView1})
+            Me.gridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridView1})
             ' 
             ' customersBindingSource
             ' 
@@ -85,7 +86,7 @@ Namespace dxKB17175
             ' 
             ' gridView1
             ' 
-            Me.gridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() { Me.colCompanyName, Me.colContactName, Me.colAddress, Me.colCity, Me.colRegion, Me.colCountry, Me.colPhone, Me.colCustomerID, Me.colContactTitle, Me.colPostalCode, Me.colFax})
+            Me.gridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCompanyName, Me.colContactName, Me.colAddress, Me.colCity, Me.colRegion, Me.colCountry, Me.colPhone, Me.colCustomerID, Me.colContactTitle, Me.colPostalCode, Me.colFax})
             Me.gridView1.CustomizationFormBounds = New System.Drawing.Rectangle(568, 271, 208, 189)
             Me.gridView1.GridControl = Me.gridControl1
             Me.gridView1.Name = "gridView1"
@@ -173,6 +174,7 @@ Namespace dxKB17175
             Me.simpleButton2.Size = New System.Drawing.Size(84, 23)
             Me.simpleButton2.TabIndex = 3
             Me.simpleButton2.Text = "Show Preview"
+            AddHandler Me.simpleButton2.Click, New System.EventHandler(AddressOf Me.simpleButton2_Click)
             ' 
             ' customersTableAdapter
             ' 
@@ -185,6 +187,7 @@ Namespace dxKB17175
             Me.simpleButton1.Size = New System.Drawing.Size(124, 23)
             Me.simpleButton1.TabIndex = 4
             Me.simpleButton1.Text = "Show Report Designer"
+            AddHandler Me.simpleButton1.Click, New System.EventHandler(AddressOf Me.simpleButton1_Click)
             ' 
             ' checkEdit1
             ' 
@@ -205,36 +208,52 @@ Namespace dxKB17175
             Me.Controls.Add(Me.gridControl1)
             Me.Name = "Form1"
             Me.Text = "Form1"
-            DirectCast(Me.gridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.customersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.nwindDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.gridView1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.checkEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+            AddHandler Me.Load, New System.EventHandler(AddressOf Me.Form1_Load)
+            CType((Me.gridControl1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.customersBindingSource), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.nwindDataSet), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.gridView1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.checkEdit1.Properties), System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
-
         End Sub
 
-        #End Region
-
+#End Region
         Private gridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+
         Private gridControl1 As DevExpress.XtraGrid.GridControl
-        Private WithEvents simpleButton2 As DevExpress.XtraEditors.SimpleButton
-        Private nwindDataSet As nwindDataSet
+
+        Private simpleButton2 As DevExpress.XtraEditors.SimpleButton
+
+        Private nwindDataSet As dxKB17175.nwindDataSet
+
         Private customersBindingSource As System.Windows.Forms.BindingSource
+
         Private customersTableAdapter As dxKB17175.nwindDataSetTableAdapters.CustomersTableAdapter
+
         Private colCompanyName As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colContactName As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colAddress As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colCity As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colRegion As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colCountry As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colPhone As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colCustomerID As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colContactTitle As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colPostalCode As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colFax As DevExpress.XtraGrid.Columns.GridColumn
-        Private WithEvents simpleButton1 As DevExpress.XtraEditors.SimpleButton
+
+        Private simpleButton1 As DevExpress.XtraEditors.SimpleButton
+
         Private checkEdit1 As DevExpress.XtraEditors.CheckEdit
     End Class
 End Namespace
-

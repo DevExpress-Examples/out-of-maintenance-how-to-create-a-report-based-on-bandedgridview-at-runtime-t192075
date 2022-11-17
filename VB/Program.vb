@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to convert an XtraGrid to an XtraReport at runtime
 ' 
 ' This example demonstrates how to dynamically create a report based upon the
@@ -9,25 +9,21 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E108
-
 Imports System
-Imports System.Collections.Generic
 Imports System.Windows.Forms
 
 Namespace dxKB17175
-    Friend NotInheritable Class Program
 
-        Private Sub New()
-        End Sub
+    Friend Module Program
 
         ''' <summary>
         ''' The main entry point for the application.
         ''' </summary>
-        <STAThread> _
-        Shared Sub Main()
-            Application.EnableVisualStyles()
+        <STAThread>
+        Sub Main()
+            Call Application.EnableVisualStyles()
             Application.SetCompatibleTextRenderingDefault(False)
-            Application.Run(New Form1())
+            Call Application.Run(New Form1())
         End Sub
-    End Class
+    End Module
 End Namespace
